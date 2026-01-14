@@ -130,8 +130,8 @@ export function useMonteCarloSimulation() {
           progress: (total / maxPoints) * 100,
         }));
 
-        // Let the browser breathe (prevents UI freeze)
-        await new Promise((r) => setTimeout(r, 0));
+        // Let the browser paint (sync with animation frame for smooth progress updates)
+        await new Promise((r) => requestAnimationFrame(r));
       }
 
       // Record this milestone

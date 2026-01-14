@@ -90,7 +90,7 @@ export function ControlPanel({
         <div className="pt-2">
           <div className="w-full bg-gray-200 rounded-full h-2.5 mb-1">
             <div
-              className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
+              className="bg-blue-600 h-2.5 rounded-full"
               style={{ width: `${progress}%` }}
             />
           </div>
