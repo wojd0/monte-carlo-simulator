@@ -89,7 +89,8 @@ export function useMonteCarloSimulation() {
     let inside = 0;
     let total = 0;
     const results: SimulationResult[] = [];
-    const maxPoints = milestones[milestones.length - 1];
+    // milestones always has at least one element (the target n)
+    const maxPoints = milestones[milestones.length - 1]!;
 
     // Go through each milestone
     for (const target of milestones) {
