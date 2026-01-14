@@ -10,4 +10,14 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/monte-carlo-simulator/",
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          recharts: ["recharts"],
+        },
+      },
+    },
+  },
 });
