@@ -7,7 +7,8 @@
  * Built as a small side project for physics class (WSB).
  */
 
-import { useMonteCarloSimulation } from "./hooks/useMonteCarloSimulation";
+import { useState } from "react";
+import { useMonteCarloSimulation, DEFAULT_N } from "./hooks/useMonteCarloSimulation";
 import {
   CanvasVisualization,
   ControlPanel,
@@ -19,6 +20,7 @@ import { useLanguage } from "./i18n";
 
 export function App() {
   const { t } = useLanguage();
+  const [targetN, setTargetN] = useState(DEFAULT_N);
 
   // All simulation logic lives in this hook
   const {
@@ -56,7 +58,9 @@ export function App() {
               totalPoints={totalPoints}
               currentPi={currentPi}
               progress={progress}
-              onRun={runSimulation}
+              targetN={targetN}
+              onTargetNChange={setTargetN}
+              onRun={() => runSimulation(targetN)}
             />
 
             <CanvasVisualization canvasRef={canvasRef} />

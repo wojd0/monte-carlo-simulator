@@ -14,6 +14,8 @@ interface Props {
   totalPoints: number;
   currentPi: number;
   progress: number;
+  targetN: number;
+  onTargetNChange: (n: number) => void;
   onRun: () => void;
 }
 
@@ -22,9 +24,18 @@ export function ControlPanel({
   totalPoints,
   currentPi,
   progress,
+  targetN,
+  onTargetNChange,
   onRun,
 }: Props) {
   const { t } = useLanguage();
+
+  const handleTargetNChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value, 10);
+    if (!isNaN(value) && value > 0) {
+      onTargetNChange(value);
+    }
+  };
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
@@ -34,6 +45,23 @@ export function ControlPanel({
       </h2>
 
       <div className="space-y-4">
+        {/* Target number of trials input */}
+        <div className="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
+          <label htmlFor="targetN" className="text-sm font-medium text-slate-500">
+            {t("targetN")}
+          </label>
+          <input
+            id="targetN"
+            type="number"
+            min="1"
+            max="100000000"
+            value={targetN}
+            onChange={handleTargetNChange}
+            disabled={isRunning}
+            className="font-mono text-lg font-bold w-36 text-right bg-white border border-gray-300 rounded px-2 py-1 disabled:bg-gray-100 disabled:cursor-not-allowed"
+          />
+        </div>
+
         {/* Current sample size */}
         <div className="flex justify-between items-center bg-slate-50 p-3 rounded-lg">
           <span className="text-sm font-medium text-slate-500">{t("currentN")}</span>

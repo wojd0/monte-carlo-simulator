@@ -7,6 +7,7 @@ export const translations = {
 
     // Control Panel
     controlPanel: "Control Panel",
+    targetN: "Target N:",
     currentN: "Current N:",
     calculatedPi: "Calculated π:",
     referenceValue: "Reference value:",
@@ -41,6 +42,7 @@ export const translations = {
 
     // Control Panel
     controlPanel: "Panel Sterowania",
+    targetN: "Docelowe N:",
     currentN: "Aktualne N:",
     calculatedPi: "Obliczone π:",
     referenceValue: "Wartość ref.:",
@@ -75,6 +77,7 @@ export const translations = {
 
     // Control Panel
     controlPanel: "Pannello di Controllo",
+    targetN: "N target:",
     currentN: "N attuale:",
     calculatedPi: "π calcolato:",
     referenceValue: "Valore rif.:",
